@@ -31,7 +31,7 @@
               lg="4"
               v-for="item in items"
               :key="item.id"
-              v-show="!item.deleted"
+              v-if="!item.deleted"
             >
               <v-card
                 class="mx-auto"
@@ -39,8 +39,10 @@
                 color="yellow lighten-2"
                 elevation="5"
               >
-                <v-card-title>
+                <v-card-title class="text" style="word-break: inherit;">
+                  
                   {{ item.title }}
+                 
                 </v-card-title>
                 <v-card-text>
                   {{ item.text }}
@@ -57,7 +59,7 @@
                   >
                 </v-card-actions>
                 <v-overlay :absolute="true" :value="item.done">
-                  DONE
+                  HECHO
                   <v-btn icon @click="deleteTask(item)" color="red lighten-1"
                     ><v-icon>mdi-delete</v-icon></v-btn
                   ></v-overlay
